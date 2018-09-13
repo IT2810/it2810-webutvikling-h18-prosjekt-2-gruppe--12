@@ -1,10 +1,13 @@
+.tabscontainer {
+  padding: 20px;
+}
+
 /* Style the tabs */
 .tabs {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 60%;
-  margin: auto;
+  text-align: center;
 }
 
 /* Style the tab */
@@ -13,10 +16,10 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 36px;
+  padding: 14px 90px;
   transition: 0.3s;
   font-size: 17px;
-  /* 
+  /*
   border-right: 1px solid grey;
   border-left: 1px solid grey;
   margin-right: -1px;
@@ -37,7 +40,6 @@
 .content {
   border: 1px solid #ccc;
   border-top: none;
-  width: 60%;
-  margin: auto;
+
   min-height: 100px;
 }
