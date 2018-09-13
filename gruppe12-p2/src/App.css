@@ -1,6 +1,7 @@
 .App {
   display: flex;
   margin: auto;
+  justify-content: center;
 }
 
 .App-header {
