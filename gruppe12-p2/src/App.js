@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Tabs from "./components/tabs";
+import Tab from "./components/tab";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Tabs>
+          <Tab label="Tab 1" tabIndex={1} />
+          <Tab label="Tab 2" tabIndex={2} />
+          <Tab label="Tab 3" tabIndex={3} />
+          <Tab label="Tab 4" tabIndex={4} />
+        </Tabs>
       </div>
     );
   }
