@@ -15,11 +15,16 @@ class Tabs extends Component {
   }
 
   renderContent() {
-    return <div>{this.props.children[this.state.activeTab]}</div>;
+    return (
+      <div className="tabcontent">
+        {this.props.children[this.state.activeTab]}
+      </div>
+    );
   }
   renderLabels() {
     return this.props.children.map((child, index) => (
       <button
+        className="tab"
         key={child.props.label}
         onClick={() => {
           this.setTab(index);
@@ -33,8 +38,8 @@ class Tabs extends Component {
   render() {
     return (
       <div>
-        {this.renderLabels()}
-        {this.renderContent()}
+        <div className="tabs">{this.renderLabels()}</div>
+        <div className="content">{this.renderContent()}</div>
       </div>
     );
   }

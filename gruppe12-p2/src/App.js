@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import "./styles/Tabs.css";
 import Tabs from "./components/tabs";
 import Tab from "./components/tab";
 
