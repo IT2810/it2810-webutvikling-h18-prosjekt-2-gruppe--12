@@ -9,7 +9,6 @@ class Tabs extends Component {
   }
 
   setTab(index) {
-    console.log("hehehehehhe");
     this.setState({
       activeTab: index
     });
