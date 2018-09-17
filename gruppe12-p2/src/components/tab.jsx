@@ -1,11 +1,28 @@
 import React, { Component } from "react";
 
 class Tab extends Component {
-  state = {};
+  state = {
+    initalRender: false
+  };
 
-  componentWillUpdate(prevProps) {
-    console.log("Compnent updated; recived new props", prevProps);
-    this.updateTabContent();
+  componentDidMount() {
+    this.setState({
+      initalRender: true
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("Compnent updated; recived new props", nextProps);
+    if (
+      this.props.musicSelected !== nextProps.musicSelected ||
+      this.props.svgSelected !== nextProps.svgSelected ||
+      this.props.textSelected !== nextProps.textSelected
+    ) {
+      this.setState({
+        initalRender: false
+      });
+      this.updateTabContent();
+    }
   }
 
   updateTabContent = () => {
@@ -13,18 +30,32 @@ class Tab extends Component {
     //TODO: change content of tab
   };
 
-  render() {
+  createInitalRender = () => {
     return (
-      <div>
-        this is the tab content for {this.props.tabIndex}
-        <br />
-        Music: {this.props.musicSelected}
-        <br />
-        SVG: {this.props.svgSelected}
-        <br />
-        Text: {this.props.textSelected}
-      </div>
+      <span>
+        Please select categories on the right from which to generate art.
+      </span>
     );
+  };
+
+  render() {
+    let content;
+    if (this.state.initalRender) {
+      content = this.createInitalRender();
+    } else {
+      content = (
+        <div>
+          This is the tab content for {this.props.tabIndex}
+          <br />
+          Music: {this.props.musicSelected}
+          <br />
+          SVG: {this.props.svgSelected}
+          <br />
+          Text: {this.props.textSelected}
+        </div>
+      );
+    }
+    return <div>{content}</div>;
   }
 }
 
