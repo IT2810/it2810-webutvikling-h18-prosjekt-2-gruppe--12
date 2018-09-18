@@ -18,7 +18,7 @@ class Jsontexts extends Component{
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.silly
+                        items: result.funny
                     });
                 },
                 (error) => {
@@ -38,13 +38,9 @@ class Jsontexts extends Component{
             return <div>Loading...</div>;
         } else {
             return (
-                <ul>
-                    {items.map(item => (
-                        <li>
-                            {item}
-                        </li>
-                    ))}
-                </ul>
+                <div>
+                    {items[Math.floor(Math.random()* 3)].toString()}
+                </div>
             );
         }
     }
