@@ -13,15 +13,37 @@ class Tab extends Component {
 
   componentWillReceiveProps(nextProps) {
     console.log("Compnent updated; recived new props", nextProps);
-    if (
-      this.props.musicSelected !== nextProps.musicSelected ||
-      this.props.svgSelected !== nextProps.svgSelected ||
-      this.props.textSelected !== nextProps.textSelected
-    ) {
-      this.setState({
-        initalRender: false
-      });
-      this.updateTabContent();
+    if (this.props.tabIndex !== this.props.activeTab + 1) {
+      if (nextProps.activeTab + 1 === this.props.tabIndex) {
+        if (
+          nextProps.musicSelected !== "" &&
+          nextProps.svgSelected !== "" &&
+          nextProps.textSelected !== ""
+        ) {
+          this.setState({
+            initalRender: false
+          });
+          this.updateTabContent();
+        }
+      }
+    }
+    if (this.props.tabIndex === this.props.activeTab + 1) {
+      if (
+        this.props.musicSelected !== nextProps.musicSelected ||
+        this.props.svgSelected !== nextProps.svgSelected ||
+        this.props.textSelected !== nextProps.textSelected
+      ) {
+        if (
+          nextProps.musicSelected !== "" &&
+          nextProps.svgSelected !== "" &&
+          nextProps.textSelected !== ""
+        ) {
+          this.setState({
+            initalRender: false
+          });
+          this.updateTabContent();
+        }
+      }
     }
   }
 

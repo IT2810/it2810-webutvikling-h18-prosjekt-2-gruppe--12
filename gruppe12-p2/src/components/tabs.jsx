@@ -9,9 +9,14 @@ class Tabs extends Component {
   }
 
   setTab(index) {
-    this.setState({
-      activeTab: index
-    });
+    this.setState(
+      {
+        activeTab: index
+      },
+      () => {
+        this.refCallback(); //callback to App.js with the selected tabindex
+      }
+    );
   }
 
   renderContent() {
@@ -21,13 +26,20 @@ class Tabs extends Component {
       </div>
     );
   }
+
+  refCallback = element => {
+    this.props.getActiveTab(this.state.activeTab);
+  };
+
   renderLabels() {
     return this.props.children.map((child, index) => (
       <button
         className="tab"
         key={child.props.label}
+        ref={this.refCallback}
         onClick={() => {
           this.setTab(index);
+          this.renderContent();
         }}
       >
         {child.props.label}

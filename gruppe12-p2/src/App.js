@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       musicSelected: "",
       svgSelected: "",
-      textSelected: ""
+      textSelected: "",
+      activeTab: 0
     };
   }
 
@@ -36,16 +37,25 @@ class App extends Component {
     }
   };
 
+  handleCallbackFromTabs = activeTab => {
+    this.setState({
+      activeTab: activeTab
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <Tabs>
+        <Tabs
+          getActiveTab={activeTab => this.handleCallbackFromTabs(activeTab)}
+        >
           <Tab
             label="Tab 1"
             tabIndex={1}
             musicSelected={this.state.musicSelected}
             svgSelected={this.state.svgSelected}
             textSelected={this.state.textSelected}
+            activeTab={this.state.activeTab}
           />
           <Tab
             label="Tab 2"
@@ -53,6 +63,7 @@ class App extends Component {
             musicSelected={this.state.musicSelected}
             svgSelected={this.state.svgSelected}
             textSelected={this.state.textSelected}
+            activeTab={this.state.activeTab}
           />
           <Tab
             label="Tab 3"
@@ -60,6 +71,7 @@ class App extends Component {
             musicSelected={this.state.musicSelected}
             svgSelected={this.state.svgSelected}
             textSelected={this.state.textSelected}
+            activeTab={this.state.activeTab}
           />
           <Tab
             label="Tab 4"
@@ -67,6 +79,7 @@ class App extends Component {
             musicSelected={this.state.musicSelected}
             svgSelected={this.state.svgSelected}
             textSelected={this.state.textSelected}
+            activeTab={this.state.activeTab}
           />
         </Tabs>
         <Selector
