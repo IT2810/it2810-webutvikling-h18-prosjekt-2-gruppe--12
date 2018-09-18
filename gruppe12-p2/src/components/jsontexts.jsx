@@ -18,8 +18,9 @@ class Jsontexts extends Component{
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.funny
+                        items: result[this.props.textSelected]
                     });
+                    console.log.items
                 },
                 (error) => {
                     this.setState({
