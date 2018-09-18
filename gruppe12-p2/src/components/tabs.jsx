@@ -37,7 +37,7 @@ class Tabs extends Component {
 
   render() {
     return (
-      <div>
+      <div className="tabscontainer">
         <div className="tabs">{this.renderLabels()}</div>
         <div className="content">{this.renderContent()}</div>
       </div>
