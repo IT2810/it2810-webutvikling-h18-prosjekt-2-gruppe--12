@@ -28,6 +28,7 @@ class Tabs extends Component {
         key={child.props.label}
         onClick={() => {
           this.setTab(index);
+          this.renderContent();
         }}
       >
         {child.props.label}
