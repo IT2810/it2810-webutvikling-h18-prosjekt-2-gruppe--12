@@ -58,7 +58,7 @@ class Jsontexts extends Component{
         } else {
             return (
                 <div>
-                    {texts[Math.floor(Math.random()* 3)].toString()}
+                    {texts[this.props.index - 1].toString()}
                 </div>
             );
         }
