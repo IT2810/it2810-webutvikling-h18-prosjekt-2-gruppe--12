@@ -6,7 +6,6 @@ import Tabs from "./components/tabs";
 import Tab from "./components/tab";
 import Selector from "./components/selector";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
