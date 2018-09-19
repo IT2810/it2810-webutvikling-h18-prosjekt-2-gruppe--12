@@ -110,7 +110,6 @@ class Tab extends Component {
                     Text: {this.props.textSelected}
                     <br/>
                     <div id="imageDiv" dangerouslySetInnerHTML={{__html: this.state.image}}/>
-                    ;
                     <Jsontexts textSelected={this.props.textSelected}></Jsontexts>
                 </div>
             );
