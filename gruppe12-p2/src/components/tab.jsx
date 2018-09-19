@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Jsontexts from "./jsontexts";
 
 
 class Tab extends Component {
@@ -76,9 +77,8 @@ class Tab extends Component {
       <span>
         Please select categories on the right from which to generate art.
       </span>
-    );
-  };
-
+        );
+    };
 
   getImage = (index,svgSelected) =>{//gets url for image to be loaded
     let url = "/resources/Graphics/" + svgSelected + index + ".svg";
@@ -112,11 +112,10 @@ class Tab extends Component {
           Text: {this.props.textSelected}
           <br />
           <div id = "imageDiv" dangerouslySetInnerHTML={{__html: this.state.image}} />;
+          <Jsontexts textSelected={this.props.textSelected}></Jsontexts>
         </div>
       );
     }
-    return <div>{content}</div>;
-  }
 }
 
 export default Tab;
