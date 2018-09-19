@@ -14,40 +14,64 @@ class Tab extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("Compnent updated; recived new props", nextProps);
-    if (
-        (this.props.musicSelected !== nextProps.musicSelected ||
-      this.props.svgSelected !== nextProps.svgSelected ||
-      this.props.textSelected !== nextProps.textSelected)
-    ) {
-      this.setState({
-        initalRender: false
-      });
-      this.updateTabContent();
-    }
+      console.log("Compnent updated; recived new props", nextProps);
+          if (this.props.tabIndex !== this.props.activeTab + 1) { //If tab wasn't active before
+              if (nextProps.activeTab + 1 === this.props.tabIndex) { //if tab will be active after receiving props
+                  if ( //If a category has been chosen for each media type
+                      nextProps.musicSelected !== "" &&
+                      nextProps.svgSelected !== "" &&
+                      nextProps.textSelected !== ""
+                  ) {
+                      this.setState({
+                          initalRender: false //remove initial message
+                      });
+                      this.updateTabContent(nextProps); //render content based on selector choice
+                  }
+              }
+          }
+          if (this.props.tabIndex === this.props.activeTab + 1) {//If tab is currently active
+              if (//if there is a change in category for at least one type of media
+                  this.props.musicSelected !== nextProps.musicSelected ||
+                  this.props.svgSelected !== nextProps.svgSelected ||
+                  this.props.textSelected !== nextProps.textSelected
+              ) {
+                  if (//If a category has been chosen for each media type
+                      nextProps.musicSelected !== "" &&
+                      nextProps.svgSelected !== "" &&
+                      nextProps.textSelected !== ""
+                  ) {
+                      this.setState({
+                          initalRender: false //remove initial message
+                      });
+                      this.updateTabContent(nextProps); //render content based on selector choice
+                  }
+              }
+          }
   }
 
+  translateSelected = (categoryString) => {//translate the category (in form of a string) into a integer
 
-
-  updateTabContent = () => {
-    console.log("Please update the content :)");
-    let c = 0;
-    if(this.props.svgSelected==="Random"){
+      let c = null;
+      if(categoryString==="Random"){
           c=0;
       }
-    if(this.props.svgSelected==="Funny"){
-        c=1;
-    }
-    if(this.props.svgSelected==="Awsome"){
-        c=2;
-    }
-
-    this.getImage(this.props.tabIndex, c);
-
-    //TODO: change content of tab
+      if(categoryString==="Funny"){
+          c=1;
+      }
+      if(categoryString==="Awsome"){
+          c=2;
+      }
+      return c;
   };
 
-  createInitalRender = () => {
+  updateTabContent = (props) => {
+    console.log("Please update the content :)");
+    let c = this.translateSelected(props.svgSelected);
+    this.getImage(this.props.tabIndex, c);
+    //TODO: change content of tab, not only for svg, but also for text + sound
+  };
+
+  createInitalRender = () => {//Standard message, displayed when all categories haven't been selected
     return (
       <span>
         Please select categories on the right from which to generate art.
@@ -55,18 +79,18 @@ class Tab extends Component {
     );
   };
 
-  //this.props.tabIndex,this.props.svgSelected
-  getImage = (index,svgSelected) =>{
+
+  getImage = (index,svgSelected) =>{//gets url for image to be loaded
     let url = "/resources/Graphics/" + svgSelected + index + ".svg";
     console.log(url,this.props.tabIndex);
     this.loadImage(url);
-}
+  };
 
-  loadImage = (url) => {
+  loadImage = (url) => { //set tab's image property into the svg at the url, rendering the image at #imageDiv
       fetch(url)
           .then(response => response.text()).
-      then(svg => this.setState({
-          image: svg
+                then(svg => this.setState({
+                    image: svg
       }));
   };
 
@@ -74,9 +98,9 @@ class Tab extends Component {
 
   render() {
     let content;
-    if (this.state.initalRender) {
+    if (this.state.initalRender) { //if the categories haven't been selected yet, display standard message
       content = this.createInitalRender();
-    } else {
+    } else { //otherwise, render selected content
       content = (
         <div>
           This is the tab content for {this.props.tabIndex}
