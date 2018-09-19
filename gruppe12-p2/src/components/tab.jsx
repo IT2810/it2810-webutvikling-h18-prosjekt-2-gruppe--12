@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Sound from "./sound";
+import Jsontexts from "./jsontexts";
 
 class Tab extends Component {
   state = {
@@ -125,6 +126,7 @@ class Tab extends Component {
             className="imageDiv"
             dangerouslySetInnerHTML={{ __html: this.state.image }}
           />
+          <Jsontexts textSelected={this.props.textSelected} />
           <Sound
             category={this.translateSelected(this.props.musicSelected)}
             index={this.props.tabIndex}
@@ -135,5 +137,4 @@ class Tab extends Component {
     return <div>{content}</div>;
   }
 }
-
 export default Tab;
