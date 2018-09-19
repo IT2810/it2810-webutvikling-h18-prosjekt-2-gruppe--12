@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+//Example from react docs used and rewritten here
 
 class Jsontexts extends Component{
     constructor(props) {
@@ -7,20 +8,19 @@ class Jsontexts extends Component{
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            texts: []
         };
     }
 
-    componentDidMount() {
+    getText = (props) => {
         fetch('/resources/text/text.json')
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result[this.props.textSelected]
+                        texts: result[props.textSelected]
                     });
-                    console.log.items
                 },
                 (error) => {
                     this.setState({
@@ -29,10 +29,28 @@ class Jsontexts extends Component{
                     });
                 }
             )
+        return null;
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+        if (nextProps !== this.props.textSelected){
+            this.getText(nextProps)
+        }
+    }
+
+    componentWillUnmount() {
+        this.mounted = false;
+    }
+
+
+    componentDidMount() {
+        this.mounted = true;
+        this.getText(this.props);
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, texts } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -40,7 +58,7 @@ class Jsontexts extends Component{
         } else {
             return (
                 <div>
-                    {items[Math.floor(Math.random()* 3)].toString()}
+                    {texts[Math.floor(Math.random()* 3)].toString()}
                 </div>
             );
         }
