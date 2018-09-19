@@ -113,15 +113,7 @@ class Tab extends Component {
     } else {
       //otherwise, render selected content
       content = (
-        <div>
-          This is the tab content for {this.props.tabIndex}
-          <br />
-          Music: {this.props.musicSelected}
-          <br />
-          SVG: {this.props.svgSelected}
-          <br />
-          Text: {this.props.textSelected}
-          <br />
+        <div className="tabContent">
           <div
             className="imageDiv"
             dangerouslySetInnerHTML={{ __html: this.state.image }}
