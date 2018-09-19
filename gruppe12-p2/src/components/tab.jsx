@@ -126,7 +126,7 @@ class Tab extends Component {
             className="imageDiv"
             dangerouslySetInnerHTML={{ __html: this.state.image }}
           />
-          <Jsontexts textSelected={this.props.textSelected} />
+          <Jsontexts textSelected={this.props.textSelected} index={this.props.tabIndex} />
           <Sound
             category={this.translateSelected(this.props.musicSelected)}
             index={this.props.tabIndex}

@@ -50,6 +50,7 @@ class Jsontexts extends Component{
     }
 
     render() {
+
         const { error, isLoaded, texts } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
@@ -57,8 +58,10 @@ class Jsontexts extends Component{
             return <div>Loading...</div>;
         } else {
             return (
-                <div>
-                    {texts[Math.floor(Math.random()* 3)].toString()}
+                <div
+                className="textDiv"
+                >
+                    {texts[this.props.index - 1].toString()}
                 </div>
             );
         }
