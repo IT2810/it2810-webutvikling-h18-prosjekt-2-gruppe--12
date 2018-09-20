@@ -27,16 +27,13 @@ class Sound extends Component {
   }
 
   generateSound = () => {
-    if(this.state.category === ""){
-      return <div className="sound">
-      <audio
-        controls
-        src={
-        }
-        type="audio/mp3"
-      />
-    </div>
-    }else{
+    if (this.state.category === "") {
+      return (
+        <div className="sound">
+          <audio controls type="audio/mp3" />
+        </div>
+      );
+    } else {
       return (
         <div className="sound">
           <audio
@@ -54,7 +51,6 @@ class Sound extends Component {
         </div>
       );
     }
-    
   };
 
   render() {
