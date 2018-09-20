@@ -1,7 +1,14 @@
 .tabscontainer {
-  padding: 20px;
+  padding-top: 20px;
+  font-size: 19px;
 }
-
+.selector {
+  margin-left: 20px;
+  font-size: 19px;
+}
+legend {
+  font-size: 20px;
+}
 /* Style the tabs */
 .tabs {
   overflow: hidden;
@@ -18,12 +25,8 @@
   cursor: pointer;
   padding: 14px 90px;
   transition: 0.3s;
-  font-size: 17px;
-  /*
-  border-right: 1px solid grey;
-  border-left: 1px solid grey;
-  margin-right: -1px;
-  */
+  font-size: 20px;
+  font-family: "PT Sans Narrow", sans-serif;
 }
 
 /* Change background color of buttons on hover */
@@ -40,13 +43,35 @@
 .content {
   border: 1px solid #ccc;
   border-top: none;
-
   min-height: 100px;
+  padding: 20px;
 }
-
 .tabContent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
-
 .imageDiv {
+  min-width: 300px;
   max-width: 400px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.textDiv {
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  max-width: 300px;
+  font-size: 20px;
+}
+.sound {
+  padding: 10px;
+  margin-left: 10px;
+}
+.textSoundDiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  vertical-align: middle;
 }
