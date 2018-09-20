@@ -1,0 +1,21 @@
+.selector {
+  padding: 20px;
+  padding-left: 0px;
+}
+legend {
+  background-color: #f1f1f1;
+  padding: 3px 6px;
+}
+.selector {
+  width: 200px;
+  text-align: left;
+}
+.Music {
+  border: 1px solid #ccc;
+}
+.SVG {
+  border: 1px solid #ccc;
+}
+.Text {
+  border: 1px solid #ccc;
+}

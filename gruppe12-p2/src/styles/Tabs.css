@@ -1,0 +1,94 @@
+.tabscontainer {
+  padding-top: 20px;
+  font-size: 19px;
+}
+.selector {
+  margin-left: 20px;
+  font-size: 19px;
+}
+legend {
+  font-size: 20px;
+}
+/* Style the tabs */
+.tabs {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+/* Style the tab */
+.tab {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 90px;
+  transition: 0.3s;
+  font-size: 20px;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+@media only screen and (max-width: 450px) {
+  .tab {
+    padding: 14px 50px;
+  }
+  .tabs {
+    max-width: 450px;
+  }
+}
+@media only screen and (orientation: landscape) and (max-width: 850px) {
+  .tab {
+    padding: 14px 50px;
+  }
+  .imageDiv {
+    min-width: 100px !important;
+    max-width: 200px !important;
+  }
+}
+
+/* Change background color of buttons on hover */
+.tab:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tab */
+.tab:focus {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.content {
+  border: 1px solid #ccc;
+  border-top: none;
+  min-height: 100px;
+  padding: 20px;
+}
+.tabContent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.imageDiv {
+  width: 300px;
+  max-width: 400px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.textDiv {
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  max-width: 300px;
+  font-size: 20px;
+}
+.sound {
+  padding: 10px;
+  margin-left: 10px;
+}
+.textSoundDiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  vertical-align: middle;
+}
