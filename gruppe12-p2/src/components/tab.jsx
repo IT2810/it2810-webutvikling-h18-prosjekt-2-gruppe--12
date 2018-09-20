@@ -15,7 +15,6 @@ class Tab extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("Compnent updated; recived new props", nextProps);
     if (this.props.tabIndex !== this.props.activeTab + 1) {
       //If tab wasn't active before
       if (nextProps.activeTab + 1 === this.props.tabIndex) {
@@ -72,7 +71,6 @@ class Tab extends Component {
   };
 
   updateTabContent = props => {
-    console.log("Please update the content :)");
     let c = this.translateSelected(props.svgSelected);
     this.getImage(this.props.tabIndex, c);
     //TODO: change content of tab, not only for svg, but also for text + sound
@@ -81,8 +79,9 @@ class Tab extends Component {
   createInitalRender = () => {
     //Standard message, displayed when all categories haven't been selected
     return (
-      <span>
-        Please select categories on the right from which to generate art.
+      <span className="initialSpan">
+        Please select categories from the selector to generate art for the
+        gallery.
       </span>
     );
   };
@@ -90,7 +89,6 @@ class Tab extends Component {
   getImage = (index, svgSelected) => {
     //gets url for image to be loaded
     let url = "/resources/Graphics/" + svgSelected + index + ".svg";
-    console.log(url, this.props.tabIndex);
     this.loadImage(url);
   };
 
@@ -113,24 +111,21 @@ class Tab extends Component {
     } else {
       //otherwise, render selected content
       content = (
-        <div>
-          This is the tab content for {this.props.tabIndex}
-          <br />
-          Music: {this.props.musicSelected}
-          <br />
-          SVG: {this.props.svgSelected}
-          <br />
-          Text: {this.props.textSelected}
-          <br />
+        <div className="tabContent">
           <div
             className="imageDiv"
             dangerouslySetInnerHTML={{ __html: this.state.image }}
           />
-          <Jsontexts textSelected={this.props.textSelected} index={this.props.tabIndex} />
-          <Sound
-            category={this.translateSelected(this.props.musicSelected)}
-            index={this.props.tabIndex}
-          />
+          <div className="textSoundDiv">
+            <Jsontexts
+              textSelected={this.props.textSelected}
+              index={this.props.tabIndex}
+            />
+            <Sound
+              category={this.translateSelected(this.props.musicSelected)}
+              index={this.props.tabIndex}
+            />
+          </div>
         </div>
       );
     }

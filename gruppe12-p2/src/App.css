@@ -2,7 +2,9 @@
   display: flex;
   margin: auto;
   justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  padding-bottom: 30px;
 }
 
 .App-header {
@@ -20,26 +22,15 @@
   font-size: large;
 }
 
-.header{
-
+.header {
   text-align: center;
   height: 55px;
   width: 100%;
   background-color: #222222;
   color: white;
-  font-size: 50px;
+  font-size: 40px;
 }
 
-.headerText{
-
+.headerText {
   margin-top: 20px;
-  padding-top: 50px;
-
-}
-
-.footer{
-  position: absolute;
-  bottom: 0;
-  font-size: 12px;
-  margin-bottom: 5px;
 }

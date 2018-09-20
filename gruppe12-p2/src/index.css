@@ -1,5 +1,14 @@
 body {
-  padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+footer {
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+  color: black;
+  background-color: lightgray;
 }
