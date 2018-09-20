@@ -27,22 +27,34 @@ class Sound extends Component {
   }
 
   generateSound = () => {
-    return (
-      <div className="sound">
-        <audio
-          controls
-          src={
-            "./resources/sound/" +
-            this.state.category +
-            "" +
-            "" +
-            this.state.index +
-            ".mp3"
-          }
-          type="audio/mp3"
-        />
-      </div>
-    );
+    if(this.state.category === ""){
+      return <div className="sound">
+      <audio
+        controls
+        src={
+        }
+        type="audio/mp3"
+      />
+    </div>
+    }else{
+      return (
+        <div className="sound">
+          <audio
+            controls
+            src={
+              "./resources/sound/" +
+              this.state.category +
+              "" +
+              "" +
+              this.state.index +
+              ".mp3"
+            }
+            type="audio/mp3"
+          />
+        </div>
+      );
+    }
+    
   };
 
   render() {
