@@ -32,7 +32,7 @@ class Sound extends Component {
         <audio
           controls
           src={
-            "prosjekt2/resources/sound/" +
+            "./resources/sound/" +
             this.state.category +
             "" +
             "" +

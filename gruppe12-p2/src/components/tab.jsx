@@ -88,7 +88,7 @@ class Tab extends Component {
 
   getImage = (index, svgSelected) => {
     //gets url for image to be loaded
-    let url = "prosjekt2/resources/Graphics/" + svgSelected + index + ".svg";
+    let url = "./resources/Graphics/" + svgSelected + index + ".svg";
     this.loadImage(url);
   };
 
