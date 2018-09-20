@@ -13,7 +13,7 @@ class Jsontexts extends Component {
   }
 
   getText = props => {
-    fetch("/resources/text/text.json")
+    fetch("prosjekt2/resources/text/text.json")
       .then(res => res.json())
       .then(
         result => {
