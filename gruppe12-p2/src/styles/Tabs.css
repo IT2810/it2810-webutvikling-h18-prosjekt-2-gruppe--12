@@ -28,6 +28,23 @@ legend {
   font-size: 20px;
   font-family: "PT Sans Narrow", sans-serif;
 }
+@media only screen and (max-width: 450px) {
+  .tab {
+    padding: 14px 50px;
+  }
+  .tabs {
+    max-width: 450px;
+  }
+}
+@media only screen and (orientation: landscape) and (max-width: 850px) {
+  .tab {
+    padding: 14px 50px;
+  }
+  .imageDiv {
+    min-width: 100px !important;
+    max-width: 200px !important;
+  }
+}
 
 /* Change background color of buttons on hover */
 .tab:hover {
@@ -53,7 +70,7 @@ legend {
   align-items: center;
 }
 .imageDiv {
-  min-width: 300px;
+  width: 300px;
   max-width: 400px;
   padding-left: 20px;
   padding-right: 20px;
